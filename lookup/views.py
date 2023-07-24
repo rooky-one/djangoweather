@@ -14,9 +14,10 @@ def home(request):
 
     try:
         api = json.loads(api_request.content)
+        # api = api_request.content
 
     except Exception as e:
-        api = "Error in attempting to retrieve API request from http://datapoint.metoffice.gov.uk/..."
+        api = "Error..."
 
     # API URL goes here:
     # http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/json/322690?res=3hourly&key=ca6ccf25-e065-494b-9f2d-13a38f584994
