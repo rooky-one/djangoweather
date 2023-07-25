@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<div class="jumbotron">
+<div class="jumbotron high">
   <h1 class="display-4">{{ api.SiteRep.DV.Location.name }}'s Weather</h1>
   <p class="lead">For the next 4 days from the {{ api.SiteRep.DV.dataDate }}</p>
   <hr class="my-4">
@@ -11,80 +11,81 @@
 <h1>Weather Forecast...</h1>
 <br/>
 
+<p>{{ api_data }}</p>
 
 {% if api %}
-	{% if api == "Error..." %}
-		There was an error...
-	{% else %}
-		<!-- {{ api.SiteRep.DV.Location }} -->
-		{{ api.SiteRep.DV.dataDate }} <br/>							<!-- Section Date --> 
-		{{ api.SiteRep.DV.Location.name }}							<!-- Section Location --> 
-		<!-- {{ api.SiteRep.DV.Location.name }} <br/> -->
-		<br/>
-		--------------
-		<br/><br/>
-		Day 1: {{ api.SiteRep.DV.Location.Period.0.value }} <br/>	<!-- Forecast Date -->  		
-		00-03hrs < Type: {{ api.SiteRep.DV.Location.Period.0.Rep.0.W }} | Temp: {{ api.SiteRep.DV.Location.Period.0.Rep.0.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.0.Rep.0.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.0.Rep.0.U }}% ><br/>
-		03-06hrs < Type: {{ api.SiteRep.DV.Location.Period.0.Rep.1.W }} | Temp: {{ api.SiteRep.DV.Location.Period.0.Rep.1.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.0.Rep.1.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.0.Rep.1.U }}% ><br/>
-		06-09hrs < Type: {{ api.SiteRep.DV.Location.Period.0.Rep.2.W }} | Temp: {{ api.SiteRep.DV.Location.Period.0.Rep.2.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.0.Rep.2.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.0.Rep.2.U }}% ><br/>
-		09-12hrs < Type: {{ api.SiteRep.DV.Location.Period.0.Rep.3.W }} | Temp: {{ api.SiteRep.DV.Location.Period.0.Rep.3.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.0.Rep.3.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.0.Rep.3.U }}% ><br/>
-		12-15hrs < Type: {{ api.SiteRep.DV.Location.Period.0.Rep.4.W }} | Temp: {{ api.SiteRep.DV.Location.Period.0.Rep.4.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.0.Rep.4.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.0.Rep.4.U }}% ><br/>
-		15-18hrs < Type: {{ api.SiteRep.DV.Location.Period.0.Rep.5.W }} | Temp: {{ api.SiteRep.DV.Location.Period.0.Rep.5.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.0.Rep.5.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.0.Rep.5.U }}% ><br/>
-		18-21hrs < Type: {{ api.SiteRep.DV.Location.Period.0.Rep.6.W }} | Temp: {{ api.SiteRep.DV.Location.Period.0.Rep.6.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.0.Rep.6.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.0.Rep.6.U }}% ><br/>
-		21-24hrs < Type: {{ api.SiteRep.DV.Location.Period.0.Rep.7.W }} | Temp: {{ api.SiteRep.DV.Location.Period.0.Rep.7.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.0.Rep.7.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.0.Rep.7.U }}% ><br/>
-		<br/>
-		Day 2: {{ api.SiteRep.DV.Location.Period.1.value }} <br/>
-		00-03hrs < Type: {{ api.SiteRep.DV.Location.Period.1.Rep.0.W }} | Temp: {{ api.SiteRep.DV.Location.Period.1.Rep.0.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.1.Rep.0.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.1.Rep.0.U }}% ><br/>
-		03-06hrs < Type: {{ api.SiteRep.DV.Location.Period.1.Rep.1.W }} | Temp: {{ api.SiteRep.DV.Location.Period.1.Rep.1.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.1.Rep.1.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.1.Rep.1.U }}% ><br/>
-		06-09hrs < Type: {{ api.SiteRep.DV.Location.Period.1.Rep.2.W }} | Temp: {{ api.SiteRep.DV.Location.Period.1.Rep.2.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.1.Rep.2.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.1.Rep.2.U }}% ><br/>
-		09-12hrs < Type: {{ api.SiteRep.DV.Location.Period.1.Rep.3.W }} | Temp: {{ api.SiteRep.DV.Location.Period.1.Rep.3.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.1.Rep.3.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.1.Rep.3.U }}% ><br/>
-		12-15hrs < Type: {{ api.SiteRep.DV.Location.Period.1.Rep.4.W }} | Temp: {{ api.SiteRep.DV.Location.Period.1.Rep.4.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.1.Rep.4.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.1.Rep.4.U }}% ><br/>
-		15-18hrs < Type: {{ api.SiteRep.DV.Location.Period.1.Rep.5.W }} | Temp: {{ api.SiteRep.DV.Location.Period.1.Rep.5.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.1.Rep.5.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.1.Rep.5.U }}% ><br/>
-		18-21hrs < Type: {{ api.SiteRep.DV.Location.Period.1.Rep.6.W }} | Temp: {{ api.SiteRep.DV.Location.Period.1.Rep.6.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.1.Rep.6.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.1.Rep.6.U }}% ><br/>
-		21-24hrs < Type: {{ api.SiteRep.DV.Location.Period.1.Rep.7.W }} | Temp: {{ api.SiteRep.DV.Location.Period.1.Rep.7.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.1.Rep.7.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.1.Rep.7.U }}% ><br/>
-		<br/>
-		Day 3: {{ api.SiteRep.DV.Location.Period.2.value }} <br/>
-		00-03hrs < Type: {{ api.SiteRep.DV.Location.Period.2.Rep.0.W }} | Temp: {{ api.SiteRep.DV.Location.Period.2.Rep.0.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.2.Rep.0.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.2.Rep.0.U }}% ><br/>
-		03-06hrs < Type: {{ api.SiteRep.DV.Location.Period.2.Rep.1.W }} | Temp: {{ api.SiteRep.DV.Location.Period.2.Rep.1.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.2.Rep.1.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.2.Rep.1.U }}% ><br/>
-		06-09hrs < Type: {{ api.SiteRep.DV.Location.Period.2.Rep.2.W }} | Temp: {{ api.SiteRep.DV.Location.Period.2.Rep.2.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.2.Rep.2.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.2.Rep.2.U }}% ><br/>
-		09-12hrs < Type: {{ api.SiteRep.DV.Location.Period.2.Rep.3.W }} | Temp: {{ api.SiteRep.DV.Location.Period.2.Rep.3.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.2.Rep.3.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.2.Rep.3.U }}% ><br/>
-		12-15hrs < Type: {{ api.SiteRep.DV.Location.Period.2.Rep.4.W }} | Temp: {{ api.SiteRep.DV.Location.Period.2.Rep.4.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.2.Rep.4.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.2.Rep.4.U }}% ><br/>
-		15-18hrs < Type: {{ api.SiteRep.DV.Location.Period.2.Rep.5.W }} | Temp: {{ api.SiteRep.DV.Location.Period.2.Rep.5.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.2.Rep.5.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.2.Rep.5.U }}% ><br/>
-		18-21hrs < Type: {{ api.SiteRep.DV.Location.Period.2.Rep.6.W }} | Temp: {{ api.SiteRep.DV.Location.Period.2.Rep.6.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.2.Rep.6.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.2.Rep.6.U }}% ><br/>
-		21-24hrs < Type: {{ api.SiteRep.DV.Location.Period.2.Rep.7.W }} | Temp: {{ api.SiteRep.DV.Location.Period.2.Rep.7.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.2.Rep.7.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.2.Rep.7.U }}% ><br/>
-		<br/>
-		Day 4: {{ api.SiteRep.DV.Location.Period.3.value }} <br/>
-		00-03hrs < Type: {{ api.SiteRep.DV.Location.Period.3.Rep.0.W }} | Temp: {{ api.SiteRep.DV.Location.Period.3.Rep.0.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.3.Rep.0.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.3.Rep.0.U }}% ><br/>
-		03-06hrs < Type: {{ api.SiteRep.DV.Location.Period.3.Rep.1.W }} | Temp: {{ api.SiteRep.DV.Location.Period.3.Rep.1.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.3.Rep.1.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.3.Rep.1.U }}% ><br/>
-		06-09hrs < Type: {{ api.SiteRep.DV.Location.Period.3.Rep.2.W }} | Temp: {{ api.SiteRep.DV.Location.Period.3.Rep.2.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.3.Rep.2.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.3.Rep.2.U }}% ><br/>
-		09-12hrs < Type: {{ api.SiteRep.DV.Location.Period.3.Rep.3.W }} | Temp: {{ api.SiteRep.DV.Location.Period.3.Rep.3.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.3.Rep.3.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.3.Rep.3.U }}% ><br/>
-		12-15hrs < Type: {{ api.SiteRep.DV.Location.Period.3.Rep.4.W }} | Temp: {{ api.SiteRep.DV.Location.Period.3.Rep.4.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.3.Rep.4.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.3.Rep.4.U }}% ><br/>
-		15-18hrs < Type: {{ api.SiteRep.DV.Location.Period.3.Rep.5.W }} | Temp: {{ api.SiteRep.DV.Location.Period.3.Rep.5.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.3.Rep.5.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.3.Rep.5.U }}% ><br/>
-		18-21hrs < Type: {{ api.SiteRep.DV.Location.Period.3.Rep.6.W }} | Temp: {{ api.SiteRep.DV.Location.Period.3.Rep.6.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.3.Rep.6.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.3.Rep.6.U }}% ><br/>
-		21-24hrs < Type: {{ api.SiteRep.DV.Location.Period.3.Rep.7.W }} | Temp: {{ api.SiteRep.DV.Location.Period.3.Rep.7.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.3.Rep.7.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.3.Rep.7.U }}% ><br/>
-		<br/>
-		Day 4: {{ api.SiteRep.DV.Location.Period.4.value }} <br/>
-		00-03hrs < Type: {{ api.SiteRep.DV.Location.Period.4.Rep.0.W }} | Temp: {{ api.SiteRep.DV.Location.Period.4.Rep.0.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.4.Rep.0.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.4.Rep.0.U }}% ><br/>
-		03-06hrs < Type: {{ api.SiteRep.DV.Location.Period.4.Rep.1.W }} | Temp: {{ api.SiteRep.DV.Location.Period.4.Rep.1.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.4.Rep.1.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.4.Rep.1.U }}% ><br/>
-		06-09hrs < Type: {{ api.SiteRep.DV.Location.Period.4.Rep.2.W }} | Temp: {{ api.SiteRep.DV.Location.Period.4.Rep.2.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.4.Rep.2.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.4.Rep.2.U }}% ><br/>
-		09-12hrs < Type: {{ api.SiteRep.DV.Location.Period.4.Rep.3.W }} | Temp: {{ api.SiteRep.DV.Location.Period.4.Rep.3.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.4.Rep.3.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.4.Rep.3.U }}% ><br/>
-		12-15hrs < Type: {{ api.SiteRep.DV.Location.Period.4.Rep.4.W }} | Temp: {{ api.SiteRep.DV.Location.Period.4.Rep.4.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.4.Rep.4.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.4.Rep.4.U }}% ><br/>
-		15-18hrs < Type: {{ api.SiteRep.DV.Location.Period.4.Rep.5.W }} | Temp: {{ api.SiteRep.DV.Location.Period.4.Rep.5.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.4.Rep.5.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.4.Rep.5.U }}% ><br/>
-		18-21hrs < Type: {{ api.SiteRep.DV.Location.Period.4.Rep.6.W }} | Temp: {{ api.SiteRep.DV.Location.Period.4.Rep.6.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.4.Rep.6.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.4.Rep.6.U }}% ><br/>
-		21-24hrs < Type: {{ api.SiteRep.DV.Location.Period.4.Rep.7.W }} | Temp: {{ api.SiteRep.DV.Location.Period.4.Rep.7.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.4.Rep.7.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.4.Rep.7.U }}% ><br/>
-		<br/>
+    {% if api == "Error..." %}
+        There was an error...
+    {% else %}
+        <!-- {{ api.SiteRep.DV.Location }} -->
+        {{ api.SiteRep.DV.dataDate }} <br/>                         <!-- Section Date --> 
+        {{ api.SiteRep.DV.Location.name }}                          <!-- Section Location --> 
+        <!-- {{ api.SiteRep.DV.Location.name }} <br/> -->
+        <br/>
+        --------------
+        <br/><br/>
+        <!-- Day 0: {{ api.SiteRep.DV.Location.Period.0.value }} <br/>
+        00-03hrs < Type: {{ api.SiteRep.DV.Location.Period.0.Rep.0.W }} | Temp: {{ api.SiteRep.DV.Location.Period.0.Rep.0.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.0.Rep.0.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.0.Rep.0.U }}% ><br/>
+        03-06hrs < Type: {{ api.SiteRep.DV.Location.Period.0.Rep.1.W }} | Temp: {{ api.SiteRep.DV.Location.Period.0.Rep.1.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.0.Rep.1.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.0.Rep.1.U }}% ><br/>
+        06-09hrs < Type: {{ api.SiteRep.DV.Location.Period.0.Rep.2.W }} | Temp: {{ api.SiteRep.DV.Location.Period.0.Rep.2.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.0.Rep.2.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.0.Rep.2.U }}% ><br/>
+        09-12hrs < Type: {{ api.SiteRep.DV.Location.Period.0.Rep.3.W }} | Temp: {{ api.SiteRep.DV.Location.Period.0.Rep.3.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.0.Rep.3.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.0.Rep.3.U }}% ><br/>
+        12-15hrs < Type: {{ api.SiteRep.DV.Location.Period.0.Rep.4.W }} | Temp: {{ api.SiteRep.DV.Location.Period.0.Rep.4.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.0.Rep.4.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.0.Rep.4.U }}% ><br/>
+        15-18hrs < Type: {{ api.SiteRep.DV.Location.Period.0.Rep.5.W }} | Temp: {{ api.SiteRep.DV.Location.Period.0.Rep.5.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.0.Rep.5.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.0.Rep.5.U }}% ><br/>
+        18-21hrs < Type: {{ api.SiteRep.DV.Location.Period.0.Rep.6.W }} | Temp: {{ api.SiteRep.DV.Location.Period.0.Rep.6.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.0.Rep.6.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.0.Rep.6.U }}% ><br/>
+        21-24hrs < Type: {{ api.SiteRep.DV.Location.Period.0.Rep.7.W }} | Temp: {{ api.SiteRep.DV.Location.Period.0.Rep.7.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.0.Rep.7.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.0.Rep.7.U }}% ><br/>
+        <br/> -->
+        Day 1: {{ api.SiteRep.DV.Location.Period.1.value }} <br/>
+        00-03hrs < Type: {{ api.SiteRep.DV.Location.Period.1.Rep.0.W }} | Temp: {{ api.SiteRep.DV.Location.Period.1.Rep.0.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.1.Rep.0.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.1.Rep.0.U }}% ><br/>
+        03-06hrs < Type: {{ api.SiteRep.DV.Location.Period.1.Rep.1.W }} | Temp: {{ api.SiteRep.DV.Location.Period.1.Rep.1.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.1.Rep.1.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.1.Rep.1.U }}% ><br/>
+        06-09hrs < Type: {{ api.SiteRep.DV.Location.Period.1.Rep.2.W }} | Temp: {{ api.SiteRep.DV.Location.Period.1.Rep.2.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.1.Rep.2.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.1.Rep.2.U }}% ><br/>
+        09-12hrs < Type: {{ api.SiteRep.DV.Location.Period.1.Rep.3.W }} | Temp: {{ api.SiteRep.DV.Location.Period.1.Rep.3.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.1.Rep.3.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.1.Rep.3.U }}% ><br/>
+        12-15hrs < Type: {{ api.SiteRep.DV.Location.Period.1.Rep.4.W }} | Temp: {{ api.SiteRep.DV.Location.Period.1.Rep.4.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.1.Rep.4.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.1.Rep.4.U }}% ><br/>
+        15-18hrs < Type: {{ api.SiteRep.DV.Location.Period.1.Rep.5.W }} | Temp: {{ api.SiteRep.DV.Location.Period.1.Rep.5.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.1.Rep.5.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.1.Rep.5.U }}% ><br/>
+        18-21hrs < Type: {{ api.SiteRep.DV.Location.Period.1.Rep.6.W }} | Temp: {{ api.SiteRep.DV.Location.Period.1.Rep.6.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.1.Rep.6.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.1.Rep.6.U }}% ><br/>
+        21-24hrs < Type: {{ api.SiteRep.DV.Location.Period.1.Rep.7.W }} | Temp: {{ api.SiteRep.DV.Location.Period.1.Rep.7.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.1.Rep.7.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.1.Rep.7.U }}% ><br/>
+        <br/>
+        Day 2: {{ api.SiteRep.DV.Location.Period.2.value }} <br/>
+        00-03hrs < Type: {{ api.SiteRep.DV.Location.Period.2.Rep.0.W }} | Temp: {{ api.SiteRep.DV.Location.Period.2.Rep.0.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.2.Rep.0.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.2.Rep.0.U }}% ><br/>
+        03-06hrs < Type: {{ api.SiteRep.DV.Location.Period.2.Rep.1.W }} | Temp: {{ api.SiteRep.DV.Location.Period.2.Rep.1.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.2.Rep.1.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.2.Rep.1.U }}% ><br/>
+        06-09hrs < Type: {{ api.SiteRep.DV.Location.Period.2.Rep.2.W }} | Temp: {{ api.SiteRep.DV.Location.Period.2.Rep.2.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.2.Rep.2.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.2.Rep.2.U }}% ><br/>
+        09-12hrs < Type: {{ api.SiteRep.DV.Location.Period.2.Rep.3.W }} | Temp: {{ api.SiteRep.DV.Location.Period.2.Rep.3.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.2.Rep.3.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.2.Rep.3.U }}% ><br/>
+        12-15hrs < Type: {{ api.SiteRep.DV.Location.Period.2.Rep.4.W }} | Temp: {{ api.SiteRep.DV.Location.Period.2.Rep.4.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.2.Rep.4.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.2.Rep.4.U }}% ><br/>
+        15-18hrs < Type: {{ api.SiteRep.DV.Location.Period.2.Rep.5.W }} | Temp: {{ api.SiteRep.DV.Location.Period.2.Rep.5.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.2.Rep.5.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.2.Rep.5.U }}% ><br/>
+        18-21hrs < Type: {{ api.SiteRep.DV.Location.Period.2.Rep.6.W }} | Temp: {{ api.SiteRep.DV.Location.Period.2.Rep.6.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.2.Rep.6.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.2.Rep.6.U }}% ><br/>
+        21-24hrs < Type: {{ api.SiteRep.DV.Location.Period.2.Rep.7.W }} | Temp: {{ api.SiteRep.DV.Location.Period.2.Rep.7.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.2.Rep.7.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.2.Rep.7.U }}% ><br/>
+        <br/>
+        Day 3: {{ api.SiteRep.DV.Location.Period.3.value }} <br/>
+        00-03hrs < Type: {{ api.SiteRep.DV.Location.Period.3.Rep.0.W }} | Temp: {{ api.SiteRep.DV.Location.Period.3.Rep.0.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.3.Rep.0.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.3.Rep.0.U }}% ><br/>
+        03-06hrs < Type: {{ api.SiteRep.DV.Location.Period.3.Rep.1.W }} | Temp: {{ api.SiteRep.DV.Location.Period.3.Rep.1.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.3.Rep.1.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.3.Rep.1.U }}% ><br/>
+        06-09hrs < Type: {{ api.SiteRep.DV.Location.Period.3.Rep.2.W }} | Temp: {{ api.SiteRep.DV.Location.Period.3.Rep.2.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.3.Rep.2.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.3.Rep.2.U }}% ><br/>
+        09-12hrs < Type: {{ api.SiteRep.DV.Location.Period.3.Rep.3.W }} | Temp: {{ api.SiteRep.DV.Location.Period.3.Rep.3.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.3.Rep.3.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.3.Rep.3.U }}% ><br/>
+        12-15hrs < Type: {{ api.SiteRep.DV.Location.Period.3.Rep.4.W }} | Temp: {{ api.SiteRep.DV.Location.Period.3.Rep.4.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.3.Rep.4.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.3.Rep.4.U }}% ><br/>
+        15-18hrs < Type: {{ api.SiteRep.DV.Location.Period.3.Rep.5.W }} | Temp: {{ api.SiteRep.DV.Location.Period.3.Rep.5.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.3.Rep.5.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.3.Rep.5.U }}% ><br/>
+        18-21hrs < Type: {{ api.SiteRep.DV.Location.Period.3.Rep.6.W }} | Temp: {{ api.SiteRep.DV.Location.Period.3.Rep.6.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.3.Rep.6.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.3.Rep.6.U }}% ><br/>
+        21-24hrs < Type: {{ api.SiteRep.DV.Location.Period.3.Rep.7.W }} | Temp: {{ api.SiteRep.DV.Location.Period.3.Rep.7.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.3.Rep.7.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.3.Rep.7.U }}% ><br/>
+        <br/>
+        Day 4: {{ api.SiteRep.DV.Location.Period.4.value }} <br/>
+        00-03hrs < Type: {{ api.SiteRep.DV.Location.Period.4.Rep.0.W }} | Temp: {{ api.SiteRep.DV.Location.Period.4.Rep.0.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.4.Rep.0.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.4.Rep.0.U }}% ><br/>
+        03-06hrs < Type: {{ api.SiteRep.DV.Location.Period.4.Rep.1.W }} | Temp: {{ api.SiteRep.DV.Location.Period.4.Rep.1.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.4.Rep.1.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.4.Rep.1.U }}% ><br/>
+        06-09hrs < Type: {{ api.SiteRep.DV.Location.Period.4.Rep.2.W }} | Temp: {{ api.SiteRep.DV.Location.Period.4.Rep.2.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.4.Rep.2.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.4.Rep.2.U }}% ><br/>
+        09-12hrs < Type: {{ api.SiteRep.DV.Location.Period.4.Rep.3.W }} | Temp: {{ api.SiteRep.DV.Location.Period.4.Rep.3.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.4.Rep.3.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.4.Rep.3.U }}% ><br/>
+        12-15hrs < Type: {{ api.SiteRep.DV.Location.Period.4.Rep.4.W }} | Temp: {{ api.SiteRep.DV.Location.Period.4.Rep.4.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.4.Rep.4.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.4.Rep.4.U }}% ><br/>
+        15-18hrs < Type: {{ api.SiteRep.DV.Location.Period.4.Rep.5.W }} | Temp: {{ api.SiteRep.DV.Location.Period.4.Rep.5.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.4.Rep.5.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.4.Rep.5.U }}% ><br/>
+        18-21hrs < Type: {{ api.SiteRep.DV.Location.Period.4.Rep.6.W }} | Temp: {{ api.SiteRep.DV.Location.Period.4.Rep.6.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.4.Rep.6.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.4.Rep.6.U }}% ><br/>
+        21-24hrs < Type: {{ api.SiteRep.DV.Location.Period.4.Rep.7.W }} | Temp: {{ api.SiteRep.DV.Location.Period.4.Rep.7.T }}oC | Rain: {{ api.SiteRep.DV.Location.Period.4.Rep.7.Pp }}% | UV: {{ api.SiteRep.DV.Location.Period.4.Rep.7.U }}% ><br/>
+        <br/>
 
-		<!-- {{ api.SiteRep.DV.Location.Period.5 }} <br/><br/>
-				{{ api.SiteRep.DV.Location.Period.6 }} <br/><br/>
-				Max UV Levels 0-3am: {{ api.SiteRep.DV.Location.Period.4.Rep.0.U }}% <br/>
-				Max UV Levels 3-6am: {{ api.SiteRep.DV.Location.Period.4.Rep.1.U }}% <br/>
-				Max UV Levels 6-9am: {{ api.SiteRep.DV.Location.Period.4.Rep.2.U }}% <br/>
-				Max UV Levels 9-12pm: {{ api.SiteRep.DV.Location.Period.4.Rep.3.U }}% <br/>
-				Max UV Levels 12-15pm : {{ api.SiteRep.DV.Location.Period.4.Rep.4.U }}% <br/>
-				Max UV Levels 15-18pm : {{ api.SiteRep.DV.Location.Period.4.Rep.5.U }}% <br/>
-				Max UV Levels 18-21pm : {{ api.SiteRep.DV.Location.Period.4.Rep.6.U }}% <br/>
-				Max UV Levels 21-00pm : {{ api.SiteRep.DV.Location.Period.4.Rep.7.U }}% <br/><br/> -->
-	{% endif %}
+        <!-- {{ api.SiteRep.DV.Location.Period.5 }} <br/><br/>
+                {{ api.SiteRep.DV.Location.Period.6 }} <br/><br/>
+                Max UV Levels 0-3am: {{ api.SiteRep.DV.Location.Period.4.Rep.0.U }}% <br/>
+                Max UV Levels 3-6am: {{ api.SiteRep.DV.Location.Period.4.Rep.1.U }}% <br/>
+                Max UV Levels 6-9am: {{ api.SiteRep.DV.Location.Period.4.Rep.2.U }}% <br/>
+                Max UV Levels 9-12pm: {{ api.SiteRep.DV.Location.Period.4.Rep.3.U }}% <br/>
+                Max UV Levels 12-15pm : {{ api.SiteRep.DV.Location.Period.4.Rep.4.U }}% <br/>
+                Max UV Levels 15-18pm : {{ api.SiteRep.DV.Location.Period.4.Rep.5.U }}% <br/>
+                Max UV Levels 18-21pm : {{ api.SiteRep.DV.Location.Period.4.Rep.6.U }}% <br/>
+                Max UV Levels 21-00pm : {{ api.SiteRep.DV.Location.Period.4.Rep.7.U }}% <br/><br/> -->
+    {% endif %}
 {% endif %}
 
 {% endblock %}
